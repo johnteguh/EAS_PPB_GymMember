@@ -6,7 +6,6 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -14,6 +13,26 @@ import com.example.gymmember.controller.MemberController
 import com.example.gymmember.repository.MemberRepository
 import com.example.gymmember.ui.theme.GymMemberTheme
 import com.example.gymmember.view.GymMemberApp
+
+
+//class MainActivity : ComponentActivity() {
+//    private val memberRepository = MemberRepository()
+//    private val memberController = MemberController(memberRepository)
+//
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        super.onCreate(savedInstanceState)
+//        setContent {
+//            GymMemberTheme {
+//                Surface(
+//                    modifier = Modifier.fillMaxSize(),
+//                    color = MaterialTheme.colorScheme.background
+//                ) {
+//                    GymMemberApp(memberController)
+//                }
+//            }
+//        }
+//    }
+//}
 
 class MainActivity : ComponentActivity() {
     private val memberRepository = MemberRepository()
@@ -27,7 +46,10 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    GymMemberApp(memberController)
+                    GymMemberApp(
+                        controller = memberController,
+                        modifier = Modifier.fillMaxSize() // PASTIKAN ADA INI
+                    )
                 }
             }
         }
@@ -44,7 +66,7 @@ fun DefaultPreview() {
             modifier = Modifier.fillMaxSize(),
             color = MaterialTheme.colorScheme.background
         ) {
-            GymMemberApp(memberController)
+            GymMemberApp(memberController, Modifier.fillMaxSize())
         }
     }
 }
