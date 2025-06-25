@@ -277,14 +277,19 @@ fun MemberDetailScreen(
         ) {
             if (member.isActive) {
                 OutlinedButton(
-                    onClick = { controller.toggleMemberStatus(member.id) },
+                    onClick = {
+                        controller.toggleMemberStatus(member.id)
+                              onBack()},
                     modifier = Modifier.weight(1f)
                 ) {
                     Text("Nonaktifkan")
                 }
             } else {
                 Button(
-                    onClick = { controller.toggleMemberStatus(member.id) },
+                    onClick = {
+                        controller.toggleMemberStatus(member.id)
+                        onBack()
+                              },
                     modifier = Modifier.weight(1f)
                 ) {
                     Text("Aktifkan")

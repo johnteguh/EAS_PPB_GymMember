@@ -13,9 +13,6 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 
 
-
-
-
 @Composable
 fun GymMemberApp(controller: MemberController) {
     val navController = rememberNavController()
@@ -52,3 +49,41 @@ fun GymMemberApp(controller: MemberController) {
         }
     }
 }
+
+
+//@Composable
+//fun GymMemberApp(controller: MemberController) {
+//    val navController = rememberNavController()
+//
+//    NavHost(
+//        navController = navController,
+//        startDestination = "member_list"
+//    ) {
+//        composable("member_list") {
+//            MemberListScreen(
+//                controller = controller,
+//                onAddMember = { navController.navigate("add_member") },
+//                onMemberClick = { memberId ->
+//                    navController.navigate("member_detail/$memberId")
+//                }
+//            )
+//        }
+//
+//        composable("add_member") {
+//            AddMemberScreen(
+//                controller = controller,
+//                onBack = { navController.popBackStack() },
+//                onMemberAdded = { navController.popBackStack() }
+//            )
+//        }
+//
+//        composable("member_detail/{memberId}") { backStackEntry ->
+//            val memberId = backStackEntry.arguments?.getString("memberId") ?: ""
+//            MemberDetailScreen(
+//                memberId = memberId,
+//                controller = controller,
+//                onBack = { navController.popBackStack() }
+//            )
+//        }
+//    }
+//}
